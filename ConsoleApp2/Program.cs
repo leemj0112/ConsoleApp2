@@ -2,27 +2,36 @@
 {
     internal class Program
     {
-        
+
         static void Main(string[] args)
         {
             Console.WriteLine("시작 부분");
 
-            int aMoney = 10000;
-            int bMoney = aMoney;
-            aMoney = 20000;
-            Console.WriteLine("aMoney: " + aMoney);
-            Console.WriteLine("bMoney: " + bMoney);
+            //call by value (value type), call by reperence (reperence type)
+            int money = 10000;
+            Console.WriteLine(money);
+            SetMoney(money);
+            Console.WriteLine(money);
 
-            GiftBox giftBoxA = new GiftBox()
+            GiftBox giftBox = new GiftBox()
             {
-                Letter = "안녕",
-                Money = 10000
+                Money = 10000,
             };
+            Console.WriteLine(giftBox.Money);
+            SetGiftBox(giftBox);
+            Console.WriteLine(giftBox.Money);
+        }
 
-            GiftBox giftboxB = giftBoxA;
-            giftBoxA.Money = 20000;
-            Console.WriteLine("giftBoxA: " + giftBoxA.Money);
-            Console.WriteLine("giftBoxB: " + giftboxB.Money);
+        static void SetMoney(int needmoney)
+        {
+            needmoney = 30000;
+        }
+
+        //call by reference
+
+        static void SetGiftBox(GiftBox info)
+        {
+            info.Money = 50000;
         }
     }
 }
